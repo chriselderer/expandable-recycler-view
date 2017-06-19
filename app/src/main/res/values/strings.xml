@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">ExpandableRecyclerViewDemo</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_example_one">ExampleOne</string>
+    <string name="title_activity_example_two">ExampleTwo</string>
+</resources>
