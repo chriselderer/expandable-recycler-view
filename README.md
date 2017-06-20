@@ -9,11 +9,11 @@ Using the loading and error states, lazy loading of data for each section is eas
 
 ## Example 1
 
-<img src="http://i.imgur.com/a/6ScNM.gif" width="300px"/>
+<img src="http://i.imgur.com/GvMU8Xg.gifv" width="300px"/>
 
 ## Example 2
 
-<img src="http://i.imgur.com/a/9SsaQ.gif" width="300px"/>
+<img src="http://i.imgur.com/2BEx00E.gifv" width="300px"/>
 
 ## Installation
 
