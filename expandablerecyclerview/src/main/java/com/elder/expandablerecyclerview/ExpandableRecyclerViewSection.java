@@ -54,7 +54,7 @@ public class ExpandableRecyclerViewSection<H, SH, C>
     //================================================================================
     // region CONSTRUCTOR
 
-    public ExpandableRecyclerViewSection(H header, SH subHeader, ArrayList<C> sectionContent, int defaultSectionExpansionState)
+    public ExpandableRecyclerViewSection(H header, SH subHeader, List<C> sectionContent, int defaultSectionExpansionState)
     {
         this.header = header;
         this.subHeader = subHeader;

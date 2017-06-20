@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by chris on 2016-12-05.
@@ -277,7 +278,7 @@ public abstract class ExpandableRecyclerViewAdapter
         SH subHeader = getSubHeaderForSection(sectionIndex);
 
         // Get the content list for this section
-        ArrayList<C> content = getContentForSection(sectionIndex);
+        List<C> content = getContentForSection(sectionIndex);
 
         // Set the initial expansion state
         return new ExpandableRecyclerViewSection<>(header, subHeader, content, getDefaultExpansionStateForSection(sectionIndex));

@@ -15,6 +15,7 @@ import com.elder.expandablerecyclerviewdemo.viewHolder.HeaderViewHolderOne;
 import com.elder.expandablerecyclerviewdemo.viewHolder.SubHeaderViewHolder;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by chris on 2016-12-05.
@@ -89,7 +90,7 @@ public class ExpandableRecyclerViewAdapterImplementationOne
     }
 
     @Override
-    public ArrayList<Animal> getContentForSection(int sectionIndex)
+    public List<Animal> getContentForSection(int sectionIndex)
     {
         // Pass the Lists representing the content of each section
         switch (sectionIndex)

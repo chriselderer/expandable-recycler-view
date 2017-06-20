@@ -4,7 +4,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -53,7 +53,7 @@ public interface Expandable <H, SH, C, HVH extends RecyclerView.ViewHolder, SVH 
      * @param sectionIndex index of the specific section.
      * @return Content ArrayList.
      */
-    ArrayList<C> getContentForSection(int sectionIndex);
+    List<C> getContentForSection(int sectionIndex);
 
     // endregion
     //================================================================================
