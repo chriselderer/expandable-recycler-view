@@ -18,8 +18,6 @@ public abstract class ExpandableRecyclerViewAdapter
         extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         implements View.OnClickListener, Expandable<H, SH, C, HVH, SVH, CVH>
 {
-    // TODO: Test all button clicks
-    // TODO: test error state & reloading
 
     //================================================================================
     // region SECTION EXPANSION STATE CONSTANTS

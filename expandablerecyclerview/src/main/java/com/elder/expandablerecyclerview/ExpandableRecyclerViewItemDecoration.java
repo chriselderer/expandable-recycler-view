@@ -6,22 +6,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import java.util.HashMap;
-
 /**
  * Created by chris on 2016-12-10.
  */
 
 public abstract class ExpandableRecyclerViewItemDecoration extends RecyclerView.ItemDecoration
 {
-    //================================================================================
-    // region VARIABLES
-
-    private HashMap<Integer, Boolean> animationTracker = new HashMap<>();
-
-    // endregion
-    //================================================================================
-
     //================================================================================
     // region DECORATION OVERRIDES
 
@@ -78,7 +68,6 @@ public abstract class ExpandableRecyclerViewItemDecoration extends RecyclerView.
                     contentSize,
                     contentIndex);
         }
-
     }
 
     @Override
