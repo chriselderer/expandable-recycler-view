@@ -19,7 +19,22 @@ Using the loading and error states, lazy loading of data for each section is eas
 
 ## Installation
 
-TODO: Describe the installation process
+Add to root build.gradle
+```
+allprojects {
+    repositories {
+	...
+	maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+Add to app build.gradle
+```
+dependencies {
+    compile 'com.github.chriselder:expandable-recycler-view:1.0.0'
+}
+```
 
 ## Usage
 
@@ -49,7 +64,7 @@ public class MyExpandableRecyclerViewAdapter
 }
 ```
 
-### 2. Implement the Expandable Interface
+### 2. Implementing the Expandable Interface
 
 By design, the ExpandableRecyclerViewAdapter forces your subclass to implement methods of the Expandable Interface. These methods mock the workflow for a regular RecyclerView and make it simple to handle header, sub header, and content views.
 
@@ -113,20 +128,46 @@ int getSavedStateForSection(int sectionIndex, int expansionState);
 
 ### 3. Responding to touch events
 
-#### Row touch events
+It is very simple to implement responding to touch events on a row or child views of a row. Just implement the corresponding interface described below. To make it dead easy to perform useful actions on touch events, the interface methods provide you with the Model object corresponding to the touched row, the section index of the section the row was in, and the expansion state of that section.
 
-To respond to a touch event on a row, implement the ExpandableRowOnClickListener interface, and register the implementing class with the ExpandableRecyclerViewAdapter. Specific methods will then automatically be called when each type of view is clicked (header, sub header, content).
+For example:
 
 ```java
-this.expandableRowOnClickListener = this;
+void sectionHeaderClicked(Header headerModelObject, int sectionIndex, int expansionState);
 ```
 
-#### Row children touch events
+#### Row touch events interface
 
-To respond to touch events on a child view in a row, implement the expandableRowSubViewOnClickListener interface, and register the implementing class with the ExpandableRecyclerViewAdapter. Specific methods will then automatically be called when each type of view is clicked (header, sub header, content).
+To respond to a touch event on a row, implement the ExpandableRowOnClickListener interface, and register the implementing class with the ExpandableRecyclerViewAdapter. The interface methods will then automatically be called when each specific type of view is clicked (header, sub header, content).
 
 ```java
-this.expandableRowSubViewOnClickListener = this;
+public class MyExpandableRecyclerViewAdapter
+        extends ExpandableRecyclerViewAdapter<Header, SubHeader, Content, HeaderViewHolder, SubHeaderViewHolder, ContentViewHolder>
+        implements ExpandableRowOnClickListener<Header, SubHeader, Content>
+{
+    public MyExpandableRecyclerViewAdapter()
+    {
+        ...
+        this.expandableRowOnClickListener = this;
+    }
+}
+```
+
+#### Row children touch events interface
+
+To respond to touch events on a child view in a row, implement the expandableRowSubViewOnClickListener interface, and register the implementing class with the ExpandableRecyclerViewAdapter. 
+
+```java
+public class MyExpandableRecyclerViewAdapter
+        extends ExpandableRecyclerViewAdapter<Header, SubHeader, Content, HeaderViewHolder, SubHeaderViewHolder, ContentViewHolder>
+        implements ExpandableRowSubViewOnClickListener<Header, SubHeader, Content>
+{
+    public MyExpandableRecyclerViewAdapter()
+    {
+        ...
+        this.expandableRowSubViewOnClickListener = this;
+    }
+}
 ```
 
 ### 4. Changing expansion state
