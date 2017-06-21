@@ -128,7 +128,7 @@ int getSavedStateForSection(int sectionIndex, int expansionState);
 
 ### 3. Responding to touch events
 
-It is very simple to implement responding to touch events on a row or child views of a row. Just implement the corresponding interface described below. To make it dead easy to perform useful actions on touch events, the interface methods provide you with the Model object corresponding to the touched row, the section index of the section the row was in, and the expansion state of that section.
+It is very simple to implement responding to touch events on a row or child views of a row, just implement the corresponding interface described below. ExpandableRecyclerViewAdapter implements OnClickListener and delegates to its own custom interfaces. To make it dead easy to perform useful actions on touch events, the interface methods provide you with the Model object corresponding to the touched row, the section index of the section the row was in, and the expansion state of that section.
 
 For example:
 
@@ -155,7 +155,7 @@ public class MyExpandableRecyclerViewAdapter
 
 #### Row children touch events interface
 
-To respond to touch events on a child view in a row, implement the expandableRowSubViewOnClickListener interface, and register the implementing class with the ExpandableRecyclerViewAdapter. 
+To respond to touch events on a child view in a row, implement the expandableRowSubViewOnClickListener interface, and register the implementing class with the ExpandableRecyclerViewAdapter. Then when binding the ViewHolder, set the child view's onClickListener to be the ExpandableRecyclerViewAdapter.
 
 ```java
 public class MyExpandableRecyclerViewAdapter
@@ -166,6 +166,11 @@ public class MyExpandableRecyclerViewAdapter
     {
         ...
         this.expandableRowSubViewOnClickListener = this;
+    }
+    
+    public void bindSectionContentViewHolder(ContentViewHolder holder, ...)
+    {
+        holder.childView.setOnClickListener(this);
     }
 }
 ```
