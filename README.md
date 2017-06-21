@@ -4,7 +4,7 @@ RecyclerView Adapter & ItemDecoration extensions that make it easy to build and 
 
 This implementation includes support for header, sub header, and content views for each section in your RecyclerView. Sub header views can be shown and hidden at will for customizability.
 
-The Adapter keeps track of each section’s expansion state, which can be Minimized, Expanded, Loading, or Error Loading.
+The Adapter keeps track of each section’s expansion state (Minimized, Expanded, Loading, or Loading Error).
 Using the loading and error states, lazy loading of data for each section is easy to implement.
 
 ## Example 1
@@ -42,7 +42,7 @@ dependencies {
 
 Create an adapter that extends ExpandableRecyclerViewAdapter.
 
-You must provide 6 types to the ExpandableRecyclerViewAdapter. This is annoying, but once its done binding view holders for each section becomes very strait forward to implement for you.
+You must provide 6 types to the ExpandableRecyclerViewAdapter. This is annoying, but once its done, binding view holders for each section becomes very strait forward to implement.
 
 1. Header:              Model class for your section headers
 2. SubHeader:           Model class for your section sub headers
@@ -51,7 +51,7 @@ You must provide 6 types to the ExpandableRecyclerViewAdapter. This is annoying,
 5. SubHeaderViewHolder: ViewHolder class for your sub header rows
 6. ContentViewHolder:   ViewHolder class for the content rows in each section
 
-In the constructor, you must provide the classes of the ViewHolders.
+You must also call the super(...) constructor and provide the class values for each of the ViewHolders types.
 
 ```java
 public class MyExpandableRecyclerViewAdapter
@@ -66,7 +66,7 @@ public class MyExpandableRecyclerViewAdapter
 
 ### 2. Implementing the Expandable Interface
 
-By design, the ExpandableRecyclerViewAdapter forces your subclass to implement methods of the Expandable Interface. These methods mock the workflow for a regular RecyclerView and make it simple to handle header, sub header, and content views.
+By design, the ExpandableRecyclerViewAdapter forces your subclass to implement methods of the Expandable Interface. These methods mimic the workflow for a regular RecyclerView and make it simple to handle header, sub header, and content views.
 
 
 #### Providing section information and datasources
@@ -119,7 +119,7 @@ boolean shouldShowSectionSubHeader(int sectionIndex, int expansionState);
 #### Saving state
 
 This method is used to specify what state you want each section to save as when the RecyclerView is destroyed.
-ex. From a loading state, you may wish to return to a minimized state if your loading operation is destroyed aswell.
+Ex. From a loading state, you may wish to return to a minimized state if your loading operation is destroyed aswell.
 
 ```java
 int getSavedStateForSection(int sectionIndex, int expansionState);
@@ -172,7 +172,7 @@ public class MyExpandableRecyclerViewAdapter
 
 ### 4. Changing expansion state
 
-To change expansion state of a specific section call one of the four provided methods.
+To change expansion state of a specific section call one of the four provided methods. You must call these methods yourself as ExpandableRecyclerViewAdapter does not do it automatically. It is recommended to change expansion state in respnse to a touch event (described above).
 
 ```java
 setExpansionStateMinimized(int sectionIndex);
@@ -183,7 +183,7 @@ setExpansionStateError(int sectionIndex);
 
 ### 5. Notifying the RecyclerView about data updates
 
-ExpandableRecyclerViewAdapter provides its own update methods, do not call the standard RecyclerView update methods (ex. adapter.notifyDataSetChanged)
+ExpandableRecyclerViewAdapter provides its own update methods, do not call the standard RecyclerView update methods (Ex. adapter.notifyDataSetChanged())
 
 ```java
 void notifyExpandableDataSetChanged();
@@ -195,7 +195,7 @@ void notifySectionChanged(int sectionIndex)
 
 ### 6. Saving expansion state
 
-To save the state of the RecyclerView call the ExpandableRecyclerViewAdapter’s onSaveInstanceState & onRestoreInstance methods from the corresponding methods in your activity.
+To save the state of the RecyclerView, call the ExpandableRecyclerViewAdapter’s onSaveInstanceState & onRestoreInstance methods from the corresponding methods in your activity.
 
 ```java
 public class MainActivity
