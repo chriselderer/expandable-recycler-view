@@ -4,8 +4,9 @@ import android.view.View;
 
 /**
  * Created by chris on 2017-06-15.
+ *
+ * Interface to be implemented by the class you want to respond to click events on the RecyclerView row child views.
  */
-
 public interface ExpandableRowSubViewOnClickListener<H, SH, C>
 {
     //================================================================================

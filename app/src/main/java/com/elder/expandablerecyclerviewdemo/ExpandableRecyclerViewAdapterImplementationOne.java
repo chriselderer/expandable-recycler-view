@@ -196,6 +196,11 @@ public class ExpandableRecyclerViewAdapterImplementationOne
     @Override
     public int getSavedStateForSection(int sectionIndex, int expansionState)
     {
+        if(sectionIndex == 0 || sectionIndex == 2)
+        {
+            return EXPANSION_STATE_MINIMIZED;
+        }
+
         if(expansionState == EXPANSION_STATE_EXPANDED)
             return expansionState;
         else

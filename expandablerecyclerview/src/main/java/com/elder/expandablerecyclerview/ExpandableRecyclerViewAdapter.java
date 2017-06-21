@@ -11,9 +11,8 @@ import java.util.List;
 /**
  * Created by chris on 2016-12-05.
  *
- * This abstract class adds expandable section functionality to RecyclerView
+ * This abstract class adds expandable section functionality to RecyclerView.Adapter
  */
-
 public abstract class ExpandableRecyclerViewAdapter
         <H, SH, C, HVH extends RecyclerView.ViewHolder, SVH extends RecyclerView.ViewHolder, CVH extends RecyclerView.ViewHolder>
         extends RecyclerView.Adapter<RecyclerView.ViewHolder>

@@ -9,14 +9,14 @@ import java.util.List;
 
 /**
  * Created by chris on 2017-06-15.
- * Expandable interface, implemented by {@Link }
+ * Expandable interface, implemented by ExpandableRecyclerViewAdapter
  *
- * @param <H>
- * @param <SH>
- * @param <C>
- * @param <HVH>
- * @param <SVH>
- * @param <CVH>
+ * @param <H> Header model class
+ * @param <SH> SubHeader model class
+ * @param <C> Content model class
+ * @param <HVH> HeaderViewHolder class
+ * @param <SVH> SubHeaderViewHolder class
+ * @param <CVH> ContentViewHolder class
  */
 public interface Expandable <H, SH, C, HVH extends RecyclerView.ViewHolder, SVH extends RecyclerView.ViewHolder, CVH extends RecyclerView.ViewHolder>
 {

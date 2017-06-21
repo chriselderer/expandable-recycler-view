@@ -8,8 +8,9 @@ import android.view.View;
 
 /**
  * Created by chris on 2016-12-10.
+ *
+ * This abstract class adds expandable section functionality to RecyclerView.ItemDecoration
  */
-
 public abstract class ExpandableRecyclerViewItemDecoration extends RecyclerView.ItemDecoration
 {
     //================================================================================
