@@ -32,7 +32,7 @@ allprojects {
 Add to app build.gradle
 ```
 dependencies {
-    compile 'com.github.chriselder:expandable-recycler-view:1.0.0'
+    compile 'com.github.chriselder:expandable-recycler-view:v1.0.0'
 }
 ```
 
